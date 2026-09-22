@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="136dh福利-专注于成人漫画与福利图集的高清在线阅读平台，提供最新热门作品、分类浏览及每日更新服务，致力于打造极致的视觉体验与阅读环境。">
+    <meta name="keywords" content="136dh福利,福利漫画,成人漫画,高清图集,在线阅读,福利站">
+    <title>136dh福利-高清福利漫画与图集在线阅读指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #1a1d24;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --accent-color: #ff4d6d;
+            --accent-hover: #ff758f;
+            --nav-bg: rgba(15, 17, 21, 0.95);
+            --border-color: #2d323e;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 4px 12px;
+            border: 1px solid var(--border-color);
+            width: 200px;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .search-bar input::placeholder {
+            color: var(--text-sub);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ff4d6d 0%, #ff758f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Categories */
+        .section-title {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            padding-left: 8px;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .category-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        /* Manga Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transform: translateY(-5px);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 133%; /* 3:4 aspect ratio */
+            background-color: #2d323e;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-cover img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: rgba(255, 77, 109, 0.9);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .card-info {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--text-main);
+        }
+
+        .card-meta {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        .status-badge {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #333;
+        }
+
+        .status-badge.new {
+            background: rgba(0, 200, 83, 0.2);
+            color: #00c853;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #161920;
+            padding: 40px 0;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 77, 109, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .feature-content p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d0f12;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+            .search-bar {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .content-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>136dh</span>福利
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">最新更新</a>
+                <a href="#">热门排行</a>
+                <a href="#">分类浏览</a>
+                <a href="#">排行榜</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索作品...">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>发现高清福利漫画与精选图集</h1>
+            <p>提供海量高清在线阅读资源，每日更新最新热门作品，极致流畅的阅读体验。</p>
+        </section>
+
+        <!-- Categories -->
+        <section>
+            <div class="section-title">热门分类</div>
+            <div class="categories-grid">
+                <a href="#" class="category-item">
+                    <span class="category-icon">🥰</span>
+                    <span class="category-name">清纯萝莉</span>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">👩‍❤️‍💋‍👨</span>
+                    <span class="category-name">校园恋爱</span>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🤫</span>
+                    <span class="category-name">办公室秘密</span>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">👩‍🏫</span>
+                    <span class="category-name">师生关系</span>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🏥</span>
+                    <span class="category-name">护士诱惑</span>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">👸</span>
+                    <span class="category-name">御姐熟女</span>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🧞</span>
+                    <span class="category-name">奇幻变身</span>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🔞</span>
+                    <span class="category-name">禁忌题材</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section>
+            <div class="section-title">
+                <span>最新更新</span>
+                <a href="#" style="font-size: 0.9rem; color: var(--accent-color);">查看全部 ></a>
+            </div>
+            <div class="content-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <span class="card-tag">H</span>
+                        <img src="https://picsum.photos/seed/136dh1/300/400" alt="作品封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">深夜食堂的秘密</h3>
+                        <div class="card-meta">
+                            <span class="status-badge new">更新中</span>
+                            <span>12话</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <span class="card-tag">H</span>
+                        <img src="https://picsum.photos/seed/136dh2/300/400" alt="作品封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">夏日祭典的诱惑</h3>
+                        <div class="card-meta">
+                            <span class="status-badge new">更新中</span>
+                            <span>08话</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <span class="card-tag">H</span>
+                        <img src="https://picsum.photos/seed/136dh3/300/400" alt="作品封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">放学后的补习班</h3>
+                        <div class="card-meta">
+                            <span class="status-badge">完结</span>
+                            <span>45话</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <span class="card-tag">H</span>
+                        <img src="https://picsum.photos/seed/136dh4/300/400" alt="作品封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">都市夜归人</h3>
+                        <div class="card-meta">
+                            <span class="status-badge new">更新中</span>
+                            <span>03话</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <span class="card-tag">H</span>
+                        <img src="https://picsum.photos/seed/136dh5/300/400" alt="作品封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">绝对领域的诱惑</h3>
+                        <div class="card-meta">
+                            <span class="status-badge">完结</span>
+                            <span>22话</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <span class="card-tag">H</span>
+                        <img src="https://picsum.photos/seed/136dh6/300/400" alt="作品封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">我的女上司</h3>
+                        <div class="card-meta">
+                            <span class="status-badge new">更新中</span>
+                            <span>15话</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Ranking Section -->
+        <section>
+            <div class="section-title">
+                <span>本周热门排行</span>
+            </div>
+            <div style="background-color: var(--card-bg); border-radius: 12px; padding: 20px;">
+                <ul style="display: flex; flex-direction: column; gap: 16px;">
+                    <li style="display: flex; align-items: center; gap: 16px;">
+                        <span style="font-size: 1.5rem; color: #ffd700; font-weight: bold; width: 30px;">1</span>
+                        <div style="flex: 1;">
+                            <a href="#" style="font-weight: 600;">恶魔的低语</a>
+                        </div>
+                        <span style="color: var(--text-sub); font-size: 0.9rem;">128.5万次阅读</span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 16px;">
+                        <span style="font-size: 1.5rem; color: #c0c0c0; font-weight: bold; width: 30px;">2</span>
+                        <div style="flex: 1;">
+                            <a href="#" style="font-weight: 600;">禁忌的羁绊</a>
+                        </div>
+                        <span style="color: var(--text-sub); font-size: 0.9rem;">98.2万次阅读</span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 16px;">
+                        <span style="font-size: 1.5rem; color: #cd7f32; font-weight: bold; width: 30px;">3</span>
+                        <div style="flex: 1;">
+                            <a href="#" style="font-weight: 600;">校园偶像的私生活</a>
+                        </div>
+                        <span style="color: var(--text-sub); font-size: 0.9rem;">85.6万次阅读</span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 16px;">
+                        <span style="font-size: 1.2rem; color: var(--text-sub); font-weight: bold; width: 30px; text-align: center;">4</span>
+                        <div style="flex: 1;">
+                            <a href="#">午夜特快</a>
+                        </div>
+                        <span style="color: var(--text-sub); font-size: 0.9rem;">72.1万次阅读</span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 16px;">
+                        <span style="font-size: 1.2rem; color: var(--text-sub); font-weight: bold; width: 30px; text-align: center;">5</span>
+                        <div style="flex: 1;">
+                            <a href="#">绝对领域</a>
+                        </div>
+                        <span style="color: var(--text-sub); font-size: 0.9rem;">65.4万次阅读</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-content">
+                    <h3>极速加载</h3>
+                    <p>优化的服务器架构，确保漫画图片秒开，阅读不卡顿。</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🛡️</div>
+                <div class="feature-content">
+                    <h3>安全纯净</h3>
+                    <p>无弹窗广告干扰，无恶意代码，提供健康绿色的阅读环境。</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <div class="feature-content">
+                    <h3>多端适配</h3>
+                    <p>完美支持手机、平板和电脑端，随时随地畅享阅读乐趣。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系客服</a>
+                <a href="#">用户协议</a>
+            </div>
+            <p class="copyright">Copyright © 2023 136dh福利. All Rights Reserved.</p>
+            <p class="copyright" style="margin-top: 8px; font-size: 0.75rem; color: #444;">本站内容仅供18+成人娱乐使用，请自觉遵守当地法律法规。</p>
+        </div>
+    </footer>
+
+</body>
+</html>

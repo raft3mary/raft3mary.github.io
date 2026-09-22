@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="爱加分结婚网提供专业、安全的一站式婚庆服务。涵盖婚纱摄影、婚礼策划、婚宴酒店预订及蜜月旅行定制。我们致力于为新人打造梦幻、难忘的完美婚礼体验。">
+    <meta name="keywords" content="爱加分结婚网, 婚庆服务, 婚纱摄影, 婚礼策划, 婚宴预订">
+    <title>爱加分结婚网-专业婚庆服务与梦幻婚礼策划平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d4373c;
+            --primary-hover: #b92b30;
+            --secondary-color: #f8f5f2;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--white);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(212, 55, 60, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://picsum.photos/seed/weddinghero/1920/1080.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Features */
+        .features {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--radius);
+            background-color: var(--white);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(212, 55, 60, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Services */
+        .services {
+            background-color: var(--secondary-color);
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-info {
+            padding: 25px;
+        }
+
+        .service-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .service-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .service-link:hover {
+            gap: 10px;
+        }
+
+        /* Steps */
+        .steps {
+            background-color: var(--white);
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .step-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .step-image {
+            flex: 1;
+            height: 350px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Gallery */
+        .gallery {
+            background-color: var(--secondary-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: var(--white);
+            font-weight: 600;
+            border: 1px solid var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), #ff6b6b);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-content .btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .cta-content .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info li {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 150px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .header-actions {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                height: 450px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-row, .step-row:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-image {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>❤</span> 爱加分结婚网
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#services">婚庆服务</a>
+                <a href="#gallery">案例展示</a>
+                <a href="#process">流程指南</a>
+                <a href="#about">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#contact" class="btn btn-primary">免费咨询</a>
+            </div>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>让每一份爱都完美加分</h1>
+            <p>专业婚礼策划、婚纱摄影与婚宴定制服务，为您打造独一无二的梦幻婚礼现场。</p>
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <a href="#services" class="btn btn-primary">查看服务</a>
+                <a href="#gallery" class="btn btn-outline" style="border-color: #fff; color: #fff;">浏览案例</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>专业团队</h3>
+                    <p>拥有10年以上经验的专业策划师与摄影师团队，为您提供一对一的专属定制服务。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>海量样片</h3>
+                    <p>精选千套真实婚礼案例，涵盖中西式风格，满足您对婚礼的所有想象。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>透明消费</h3>
+                    <p>拒绝隐形消费，所有费用明细公开透明，让您安心享受筹备过程。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>高效执行</h3>
+                    <p>完善的执行团队与应急预案，确保婚礼当天的每一个环节流畅无误。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding services">
+        <div class="container">
+            <div class="section-header">
+                <h2>全方位婚庆服务</h2>
+                <p>从求婚到蜜月，我们提供一站式解决方案，满足您对婚礼的所有期待。</p>
+            </div>
+            <div class="service-grid">
+                <article class="service-item">
+                    <img src="https://picsum.photos/seed/weddingphoto/400/300.jpg" alt="婚纱摄影" class="service-img">
+                    <div class="service-info">
+                        <h3>婚纱摄影</h3>
+                        <p>提供外景跟拍、旅拍服务及室内棚拍。捕捉您最动人的瞬间，留下永恒回忆。</p>
+                        <a href="#" class="service-link">查看样片 &rarr;</a>
+                    </div>
+                </article>
+                <article class="service-item">
+                    <img src="https://picsum.photos/seed/weddingplanning/400/300.jpg" alt="婚礼策划" class="service-img">
+                    <div class="service-info">
+                        <h3>婚礼策划</h3>
+                        <p>根据您的喜好定制主题，从流程设计到现场布置，打造专属您的浪漫仪式。</p>
+                        <a href="#" class="service-link">了解详情 &rarr;</a>
+                    </div>
+                </article>
+                <article class="service-item">
+                    <img src="https://picsum.photos/seed/weddingbanquet/400/300.jpg" alt="婚宴预订" class="service-img">
+                    <div class="service-info">
+                        <h3>婚宴酒店</h3>
+                        <p>合作高端酒店资源，提供场地预定、菜单定制及宴席统筹服务。</p>
+                        <a href="#" class="service-link">查看酒店 &rarr;</a>
+                    </div>
+                </article>
+                <article class="service-item">
+                    <img src="https://picsum.photos/seed/weddingdress/400/300.jpg" alt="婚庆礼服" class="service-img">
+                    <div class="service-info">
+                        <h3>婚庆礼服</h3>
+                        <p>提供婚纱、西装、敬酒服等全套租赁与购买服务，焕发最美光彩。</p>
+                        <a href="#" class="service-link">预约试穿 &rarr;</a>
+                    </div>
+                </article>
+                <article class="service-item">
+                    <img src="https://picsum.photos/seed/weddingcar/400/300.jpg" alt="婚车租赁" class="service-img">
+                    <div class="service-info">
+                        <h3>婚车租赁</h3>
+                        <p>豪华车队阵容，个性化装饰，为您的迎亲车队增添尊贵与喜庆氛围。</p>
+                        <a href="#" class="service-link">查看车型 &rarr;</a>
+                    </div>
+                </article>
+                <article class="service-item">
+                    <img src="https://picsum.photos/seed/weddingcake/400/300.jpg" alt="甜品台布置" class="service-img">
+                    <div class="service-info">
+                        <h3>甜品台布置</h3>
+                        <p>精致甜品设计与现场布置，为婚礼增添甜蜜氛围，也是宾客拍照的打卡点。</p>
+                        <a href="#" class="service-link">查看方案 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section-padding steps">
+        <div class="container">
+            <div class="section-header">
+                <h2>简单四步，轻松办婚礼</h2>
+                <p>我们将繁琐的筹备工作梳理得井井有条，让您省心省力。</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-row">
+                    <div class="step-content">
+                        <span class="step-number">01</span>
+                        <h3>预约咨询</h3>
+                        <p>通过电话或在线咨询与我们的策划师取得联系，初步沟通您的婚礼预算、风格偏好及日期。</p>
+                        <a href="#" class="btn btn-outline">立即预约</a>
+                    </div>
+                    <div class="step-image">
+                        <img src="https://picsum.photos/seed/consult/600/400.jpg" alt="预约咨询">
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-content">
+                        <span class="step-number">02</span>
+                        <h3>方案定制</h3>
+                        <p>策划师根据您的需求，提供详细的设计方案、报价单及时间进度表，确认无误后签订合同。</p>
+                        <a href="#" class="btn btn-outline">查看案例</a>
+                    </div>
+                    <div class="step-image">
+                        <img src="https://picsum.photos/seed/planning/600/400.jpg" alt="方案定制">
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-content">
+                        <span class="step-number">03</span>
+                        <h3>婚礼执行</h3>
+                        <p>执行团队全程跟进，包括现场搭建、彩排指导及婚礼当天的流程把控，确保万无一失。</p>
+                        <a href="#" class="btn btn-outline">了解团队</a>
+                    </div>
+                    <div class="step-image">
+                        <img src="https://picsum.photos/seed/execution/600/400.jpg" alt="婚礼执行">
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-content">
+                        <span class="step-number">04</span>
+                        <h3>完美交付</h3>
+                        <p>婚礼结束后，我们提供精修照片、婚礼录像及后续售后服务，为您珍藏美好回忆。</p>
+                        <a href="#" class="btn btn-outline">查看作品</a>
+                    </div>
+                    <div class="step-image">
+                        <img src="https://picsum.photos/seed/finish/600/400.jpg" alt="完美交付">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>婚礼案例精选</h2>
+                <p>看看我们的客户是如何通过爱加分结婚网，实现梦想婚礼的。</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/w1/400/400.jpg" alt="案例1">
+                    <div class="gallery-overlay"><span>森系婚礼</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/w2/400/400.jpg" alt="案例2">
+                    <div class="gallery-overlay"><span>韩式浪漫</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/w3/400/400.jpg" alt="案例3">
+                    <div class="gallery-overlay"><span>奢华晚宴</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/w4/400/400.jpg" alt="案例4">
+                    <div class="gallery-overlay"><span>户外草坪</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/w5/400/400.jpg" alt="案例5">
+                    <div class="gallery-overlay"><span>中式喜庆</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/w6/400/400.jpg" alt="案例6">
+                    <div class="gallery-overlay"><span>清新田园</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/w7/400/400.jpg" alt="案例7">
+                    <div class="gallery-overlay"><span>欧式宫廷</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/w8/400/400.jpg" alt="案例8">
+                    <div class="gallery-overlay"><span>星空主题</span></div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 30px;">
+                <a href="#" class="btn btn-primary">查看更多案例</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding cta-section">
+        <div class="container cta-content">
+            <h2>准备步入婚姻殿堂了吗？</h2>
+            <p>立即联系我们，获取您的专属婚礼方案与免费报价。</p>
+            <a href="#contact" class="btn">免费咨询策划师</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>爱加分结婚网</h3>
+                    <p>专注为新人提供高品质的婚庆服务体验。我们将每一份爱意转化为现实，助力您的幸福时刻。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">服务项目</a></li>
+                        <li><a href="#">婚礼案例</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul>
+                        <li><a href="#">婚纱摄影</a></li>
+                        <li><a href="#">婚礼策划</a></li>
+                        <li><a href="#">婚宴预订</a></li>
+                        <li><a href="#">蜜月旅行</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <span class="contact-icon">📍</span>
+                            <span>北京市朝阳区建国路88号SOHO现代城A座</span>
+                        </li>
+                        <li>
+                            <span class="contact-icon">📞</span>
+                            <span>400-888-8888</span>
+                        </li>
+                        <li>
+                            <span class="contact-icon">✉️</span>
+                            <span>service@aifendian.com</span>
+                        </li>
+                        <li>
+                            <span class="contact-icon">🕒</span>
+                            <span>周一至周日 9:00 - 21:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 爱加分结婚网 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的移动端菜单切换逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const headerActions = document.querySelector('.header-actions');
+
+            menuBtn.addEventListener('click', function() {
+                const isHidden = window.getComputedStyle(navLinks).display === 'none';
+                if (isHidden) {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '70px';
+                    navLinks.style.left = '0';
+                    navLinks.style.width = '100%';
+                    navLinks.style.background = '#fff';
+                    navLinks.style.padding = '20px';
+                    navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                    
+                    headerActions.style.display = 'flex';
+                    headerActions.style.flexDirection = 'column';
+                    headerActions.style.position = 'absolute';
+                    headerActions.style.top = '280px';
+                    headerActions.style.left = '0';
+                    headerActions.style.width = '100%';
+                    headerActions.style.background = '#fff';
+                    headerActions.style.padding = '0 20px 20px';
+                    headerActions.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                } else {
+                    navLinks.style.display = 'none';
+                    headerActions.style.display = 'none';
+                }
+            });
+
+            // 点击链接后自动收起菜单（针对移动端）
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                        headerActions.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>

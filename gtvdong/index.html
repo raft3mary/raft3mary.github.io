@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GTV冬阳官方资讯平台，提供GTV冬阳最新动态、作品展示、粉丝社区互动及独家幕后花絮。">
+    <meta name="keywords" content="GTV冬阳, GTV, 冬阳, 官方资讯, 粉丝社区, 娱乐">
+    <title>GTV冬阳-官方资讯与粉丝互动社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --primary-dark: #b71c1c;
+            --secondary-color: #f5f5f5;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #f9f9f9;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-subscribe {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a1c1c 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* 主要内容区 */
+        main {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 5px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* 卡片网格 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 0;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
+            border-bottom: 2px solid transparent;
+        }
+
+        .card-btn:hover {
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* 侧边栏布局 */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* 列表样式 */
+        .list-item {
+            display: flex;
+            gap: 20px;
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            align-items: center;
+        }
+
+        .list-thumb {
+            width: 100px;
+            height: 70px;
+            border-radius: 4px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .list-content {
+            flex: 1;
+        }
+
+        .list-title {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .list-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .list-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* 侧边栏 */
+        aside .widget {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            opacity: 0.9;
+        }
+
+        .bg-weibo { background-color: #e6162d; }
+        .bg-wechat { background-color: #07c160; }
+        .bg-bilibili { background-color: #00aeec; }
+        .bg-twitter { background-color: #1da1f2; }
+
+        .ranking-list li {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .ranking-num {
+            width: 25px;
+            height: 25px;
+            background-color: #f0f0f0;
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        .ranking-list li:nth-child(1) .ranking-num { background-color: #ffd700; color: #fff; }
+        .ranking-list li:nth-child(2) .ranking-num { background-color: #c0c0c0; color: #fff; }
+        .ranking-list li:nth-child(3) .ranking-num { background-color: #cd7f32; color: #fff; }
+
+        .ranking-title {
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #222;
+            color: #999;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* 移动端简化：隐藏菜单 */
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .list-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .list-thumb {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                GTV<span>冬阳</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">最新动态</a>
+                <a href="#">作品展示</a>
+                <a href="#">粉丝社区</a>
+                <a href="#">关于我们</a>
+            </nav>
+            <a href="#" class="btn-subscribe">关注我们</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>GTV冬阳</h1>
+            <p>探索精彩内容，连接热爱与梦想。在这里发现最新资讯、独家幕后故事以及粉丝互动的专属空间。</p>
+            <div class="hero-tags">
+                <span class="tag">#官方资讯</span>
+                <span class="tag">#幕后花絮</span>
+                <span class="tag">#粉丝福利</span>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <a href="#" class="btn-subscribe">进入社区</a>
+                <a href="#" class="btn-subscribe" style="background: rgba(255,255,255,0.2);">浏览作品</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <!-- 左侧内容区 -->
+            <div class="main-content">
+                
+                <!-- 最新动态 -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">最新动态</h2>
+                        <a href="#" class="view-all">查看更多 &rarr;</a>
+                    </div>
+                    
+                    <article class="list-item">
+                        <img src="https://picsum.photos/seed/gtv1/200/140" alt="活动图片" class="list-thumb">
+                        <div class="list-content">
+                            <h3 class="list-title"><a href="#">GTV冬阳年度粉丝见面会圆满落幕</a></h3>
+                            <p class="list-desc">回顾活动现场精彩瞬间，感谢所有粉丝的支持与厚爱。下一年度计划将于Q3公布。</p>
+                            <span class="list-date">2023-10-15</span>
+                        </div>
+                    </article>
+
+                    <article class="list-item">
+                        <img src="https://picsum.photos/seed/gtv2/200/140" alt="活动图片" class="list-thumb">
+                        <div class="list-content">
+                            <h3 class="list-title"><a href="#">冬阳工作室发布全新创作企划</a></h3>
+                            <p class="list-desc">关于即将推出的跨界合作项目，我们带来了更多幕后细节和概念图。</p>
+                            <span class="list-date">2023-10-12</span>
+                        </div>
+                    </article>
+
+                    <article class="list-item">
+                        <img src="https://picsum.photos/seed/gtv3/200/140" alt="活动图片" class="list-thumb">
+                        <div class="list-content">
+                            <h3 class="list-title"><a href="#">社区互动：你心目中的最佳作品评选</a></h3>
+                            <p class="list-desc">快来参与投票，选出你心目中最有影响力的作品，赢取限定周边。</p>
+                            <span class="list-date">2023-10-10</span>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- 精选作品 -->
+                <section style="margin-top: 60px;">
+                    <div class="section-header">
+                        <h2 class="section-title">精选作品</h2>
+                        <a href="#" class="view-all">查看全部 &rarr;</a>
+                    </div>
+                    <div class="grid-3">
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/art1/400/300" alt="作品封面" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">插画集</span>
+                                <h3 class="card-title"><a href="#">《冬日暖阳》概念画集</a></h3>
+                                <p class="card-excerpt">收录了冬阳工作室过去一年的精选概念设计与角色设定。</p>
+                                <a href="#" class="card-btn">立即预览</a>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/art2/400/300" alt="作品封面" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">同人志</span>
+                                <h3 class="card-title"><a href="#">《星空之下》同人短篇</a></h3>
+                                <p class="card-excerpt">由粉丝社区投稿的优秀短篇故事合集，充满温情与力量。</p>
+                                <a href="#" class="card-btn">阅读故事</a>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/art3/400/300" alt="作品封面" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">教程</span>
+                                <h3 class="card-title"><a href="#">绘画技法分享：光影运用</a></h3>
+                                <p class="card-excerpt">冬阳主笔分享的关于如何捕捉冬日光影的实用绘画技巧。</p>
+                                <a href="#" class="card-btn">学习技巧</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <aside class="sidebar">
+                <!-- 社交关注 -->
+                <div class="widget">
+                    <h3 class="widget-title">关注我们</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-btn bg-weibo">
+                            <span>Weibo</span> 官方微博
+                        </a>
+                        <a href="#" class="social-btn bg-wechat">
+                            <span>WeChat</span> 官方微信
+                        </a>
+                        <a href="#" class="social-btn bg-bilibili">
+                            <span>Bilibili</span> 动态更新
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 热门排行 -->
+                <div class="widget">
+                    <h3 class="widget-title">热门话题</h3>
+                    <ul class="ranking-list">
+                        <li>
+                            <span class="ranking-num">1</span>
+                            <span class="ranking-title"><a href="#">年度创作计划投票</a></span>
+                        </li>
+                        <li>
+                            <span class="ranking-num">2</span>
+                            <span class="ranking-title"><a href="#">粉丝见面会回顾</a></span>
+                        </li>
+                        <li>
+                            <span class="ranking-num">3</span>
+                            <span class="ranking-title"><a href="#">新作概念图赏析</a></span>
+                        </li>
+                        <li>
+                            <span class="ranking-num">4</span>
+                            <span class="ranking-title"><a href="#">周边众筹进展</a></span>
+                        </li>
+                        <li>
+                            <span class="ranking-num">5</span>
+                            <span class="ranking-title"><a href="#">社区活动规则</a></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 广告位模拟 -->
+                <div class="widget" style="background: #e0e0e0; display: flex; align-items: center; justify-content: center; height: 200px; color: #666; font-size: 0.9rem;">
+                    广告位区域
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>GTV冬阳</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        致力于为粉丝提供最新、最全的官方资讯与互动平台。连接创作者与观众，共同创造美好记忆。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 GTV冬阳. All Rights Reserved. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                              </html>

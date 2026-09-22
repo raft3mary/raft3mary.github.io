@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="福昕阅读器官方首页，提供专业PDF阅读、编辑、转换与标注工具。支持Windows、Mac、iOS及Android多平台，安全高效，满足个人与办公需求。">
+    <meta name="keywords" content="福昕阅读器, PDF阅读器, PDF编辑器, PDF转换, Foxit Reader, 福昕官网">
+    <title>福昕阅读器 - 专业PDF阅读、编辑与转换工具平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00a4ef;
+            --primary-dark: #007bb8;
+            --secondary-color: #f5f7fa;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #1e293b;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: var(--radius);
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .product-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+            font-size: 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image {
+            height: 180px;
+            background-color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .cross-icon::before {
+            content: "✕";
+            color: #ef4444;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+            
+            .header-actions {
+                margin-left: auto;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#00a4ef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20" stroke="#00a4ef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 13H8" stroke="#00a4ef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 17H8" stroke="#00a4ef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 9H8" stroke="#00a4ef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>福昕阅读器</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#features">功能特色</a></li>
+                    <li><a href="#products">软件产品</a></li>
+                    <li><a href="#comparison">功能对比</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">免费下载</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>高效阅读与编辑 <br><span>PDF文档</span> 的首选工具</h1>
+                <p>福昕阅读器，一款轻量级且功能强大的PDF阅读软件。支持PDF阅读、批注、转换及编辑，兼容Windows、Mac、iOS及Android多端，安全稳定，提升您的工作效率。</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">立即下载 Windows版</a>
+                    <a href="#" class="btn btn-outline">查看 Mac版</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心功能亮点</h2>
+                    <p>超越基础阅读，提供全面的PDF文档处理能力</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <h3>便捷批注与标注</h3>
+                        <p>支持高亮、下划线、文字注释、绘图等多种标注方式，让您的阅读体验更加个性化，记录灵感更轻松。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>快速搜索与导航</h3>
+                        <p>内置强大的全文检索引擎，支持跨页搜索，快速定位文档中的关键词，高效处理长篇幅资料。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>安全阅读保护</h3>
+                        <p>支持设置文档打开密码和权限密码，防止未授权访问。采用本地化处理技术，保护您的隐私数据安全。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📄</div>
+                        <h3>PDF转Word转换</h3>
+                        <p>支持将PDF文档转换为可编辑的Word格式，保留原文档的排版格式，方便二次编辑和整理。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">☁️</div>
+                        <h3>云文档同步</h3>
+                        <p>支持连接云存储服务，随时随地打开和编辑您的PDF文件，实现多设备间的无缝衔接。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🖼️</div>
+                        <h3>截图与抓取</h3>
+                        <p>提供全屏截图和局部截图功能，快速截取网页或文档中的精彩内容，保存为图片格式。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>福昕产品系列</h2>
+                    <p>针对不同使用场景，为您提供全方位的PDF解决方案</p>
+                </div>
+                <div class="product-tabs">
+                    <button class="tab-btn active">福昕阅读器</button>
+                    <button class="tab-btn">福昕高级PDF编辑器</button>
+                    <button class="tab-btn">福昕PDF转换器</button>
+                    <button class="tab-btn">福签</button>
+                </div>
+                <div class="product-list">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">📖</div>
+                        <div class="product-info">
+                            <h3>福昕阅读器</h3>
+                            <p>经典免费PDF阅读软件，界面简洁，加载速度快，是打开和浏览PDF文档的基础工具。</p>
+                            <div class="product-meta">
+                                <span class="check-icon">免费下载</span>
+                                <span>支持 Windows / Mac / iOS / Android</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">✏️</div>
+                        <div class="product-info">
+                            <h3>高级PDF编辑器</h3>
+                            <p>专业的PDF编辑软件，支持编辑PDF文本和图像，添加或删除页面，合并与拆分文档。</p>
+                            <div class="product-meta">
+                                <span class="check-icon">付费专业版</span>
+                                <span>Windows / Mac 专用</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">🔄</div>
+                        <div class="product-info">
+                            <h3>PDF转换器</h3>
+                            <p>强大的格式转换工具，支持PDF与Word、Excel、PPT、图片等格式之间的互转。</p>
+                            <div class="product-meta">
+                                <span class="check-icon">在线或客户端</span>
+                                <span>一站式转换解决方案</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <div class="section-title">
+                    <h2>福昕 vs 常用工具</h2>
+                    <p>为什么选择福昕阅读器作为您的PDF处理伙伴</p>
+                </div>
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>功能特性</th>
+                                <th>福昕阅读器</th>
+                                <th>Adobe Reader</th>
+                                <th>系统自带预览</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>PDF阅读体验</td>
+                                <td><span class="check-icon">流畅快速</span></td>
+                                <td><span class="check-icon">流畅</span></td>
+                                <td><span class="check-icon">基础</span></td>
+                            </tr>
+                            <tr>
+                                <td>文档编辑功能</td>
+                                <td><span class="check-icon">支持文本/图像编辑</span></td>
+                                <td><span class="cross-icon">仅注释</span></td>
+                                <td><span class="cross-icon">不支持</span></td>
+                            </tr>
+                            <tr>
+                                <td>PDF转Word</td>
+                                <td><span class="check-icon">支持</span></td>
+                                <td><span class="cross-icon">不支持</span></td>
+                                <td><span class="cross-icon">不支持</span></td>
+                            </tr>
+                            <tr>
+                                <td>安全性</td>
+                                <td><span class="check-icon">高（本地处理）</span></td>
+                                <td><span class="check-icon">高</span></td>
+                                <td><span class="check-icon">中</span></td>
+                            </tr>
+                            <tr>
+                                <td>跨平台支持</td>
+                                <td><span class="check-icon">全平台覆盖</span></td>
+                                <td><span class="check-icon">全平台覆盖</span></td>
+                                <td><span class="cross-icon">仅桌面端</span></td>
+                            </tr>
+                            <tr>
+                                <td>启动速度</td>
+                                <td><span class="check-icon">秒开</span></td>
+                                <td><span class="check-icon">较慢</span></td>
+                                <td><span class="check-icon">最快</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                    <p>关于福昕阅读器的使用疑问与解答</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            福昕阅读器是免费的吗？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            是的，福昕阅读器基础版是免费提供给用户下载使用的。您可以在官网下载并安装，享受完整的阅读和基础编辑功能。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            如何将PDF转换为Word文档？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            您可以使用福昕阅读器内置的转换功能，或者下载专门的福昕PDF转换器。在阅读器中选择“文件”菜单下的转换选项，即可将PDF导出为Word格式。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            福昕阅读器支持在手机上使用吗？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            支持。福昕阅读器提供了iOS和Android版本的移动应用，您可以在应用商店搜索“福昕阅读器”进行下载，并在手机、平板上同步阅读文档。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            下载软件需要注册账号吗？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            下载软件通常不需要注册，但为了获得更好的服务（如云存储同步、个性化设置备份等），建议您注册一个福昕账号。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>福昕阅读器</h3>
+                    <p>致力于为全球用户提供专业、安全、易用的PDF文档处理解决方案，让文档处理变得简单高效。</p>
+                    <div class="social-links">
+                        <!-- Placeholder for social icons -->
+                        <span style="font-size: 1.5rem; margin-right: 10px;">📧</span>
+                        <span style="font-size: 1.5rem; margin-right: 10px;">📱</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>产品中心</h4>
+                    <ul>
+                        <li><a href="#">福昕阅读器</a></li>
+                        <li><a href="#">福昕高级PDF编辑器</a></li>
+                        <li><a href="#">福昕PDF转换器</a></li>
+                        <li><a href="#">福签</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>帮助支持</h4>
+                    <ul>
+                        <li><a href="#">下载中心</a></li>
+                        <li><a href="#">使用教程</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">反馈建议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Foxit Software Inc. 保留所有权利。福昕阅读器官网演示页面。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Simple Tab Logic for Products
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    // In a real app, this would switch content panels
+                });
+            });
+        });
+    </script>
+</body>
+  </html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="双拳无敌 - 汇聚最强格斗游戏攻略、连招教学、角色强度排行及同人创作，助你打造无坚不摧的战斗体系。">
+    <meta name="keywords" content="双拳无敌,格斗游戏,连招攻略,角色排行,游戏攻略">
+    <title>双拳无敌 - 极致格斗攻略与连招图鉴</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --accent-color: #ffa502;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-sub: #747d8c;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 1rem;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 150px;
+            font-size: 0.9rem;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-sub);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b81 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* 核心玩法分类 */
+        .section-title {
+            font-size: 1.8rem;
+            margin: 3rem 0 2rem 0;
+            padding-left: 1rem;
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title span {
+            margin-left: 10px;
+            font-size: 1rem;
+            color: var(--text-sub);
+            font-weight: normal;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .cat-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cat-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* 攻略内容区 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .guide-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            transition: transform 0.2s;
+        }
+
+        .guide-card:hover {
+            transform: scale(1.01);
+        }
+
+        .guide-thumb {
+            width: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .guide-info {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .guide-tag {
+            font-size: 0.75rem;
+            background-color: rgba(255, 71, 87, 0.1);
+            color: var(--primary-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .guide-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .guide-excerpt {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .guide-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        /* 侧边栏 */
+        aside {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            height: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-block {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .rank-num.top-1 { background-color: #ffd700; }
+        .rank-num.top-2 { background-color: #c0c0c0; }
+        .rank-num.top-3 { background-color: #cd7f32; }
+
+        .rank-name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rank-rate {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* 视频区域 */
+        .video-section {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .video-card {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .video-card:hover img {
+            opacity: 0.6;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-icon::after {
+            content: '';
+            border-style: solid;
+            border-width: 8px 0 8px 14px;
+            border-color: transparent transparent transparent white;
+            margin-left: 3px;
+        }
+
+        .video-info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+
+        .video-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: box-shadow 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .faq-q {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-q::before {
+            content: 'Q';
+            color: var(--primary-color);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .faq-a {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #a4b0be;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .content-grid { grid-template-columns: 1fr; }
+            .guide-card { flex-direction: column; }
+            .guide-thumb { width: 100%; height: 180px; }
+            nav ul { display: none; } /* 简化处理，移动端隐藏导航链接 */
+            .search-box { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6"></path>
+                    <path d="M12 3v18"></path>
+                </svg>
+                双拳无敌<span>攻略站</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">连招图鉴</a></li>
+                    <li><a href="#">角色排行</a></li>
+                    <li><a href="#">装备搭配</a></li>
+                    <li><a href="#">社区交流</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索角色、技能...">
+                <button aria-label="搜索">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>双拳无敌：掌握核心格斗艺术</h1>
+            <p>从新手入门到宗师级连招，这里汇聚了最详尽的双拳无敌游戏攻略、角色分析与实战技巧，助你成为赛场上的不败王者。</p>
+            <a href="#guide" class="hero-btn">开始修炼</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- 核心玩法分类 -->
+        <section id="guide">
+            <h2 class="section-title">修炼路径 <span>Choose Your Path</span></h2>
+            <div class="categories-grid">
+                <article class="category-card">
+                    <div class="cat-icon">👊</div>
+                    <h3 class="cat-title">基础连招</h3>
+                    <p class="cat-desc">掌握核心出招表，从平A到必杀技的无缝衔接。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">⚡</div>
+                    <h3 class="cat-title">特殊机制</h3>
+                    <p class="cat-desc">解析无敌帧、霸体与反手反击的战术运用。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">🛡️</div>
+                    <h3 class="cat-title">防反教学</h3>
+                    <p class="cat-desc">如何在对方攻势最猛时寻找破绽一击制胜。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">🤝</div>
+                    <h3 class="cat-title">双人协作</h3>
+                    <p class="cat-desc">双拳合璧的连携技与团队战术配合指南。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 主要内容与侧边栏 -->
+        <div class="content-grid">
+            <section class="guide-list">
+                <h2 class="section-title">最新攻略 <span>Latest Guides</span></h2>
+                
+                <!-- 攻略卡片 1 -->
+                <article class="guide-card">
+                    <img src="https://picsum.photos/seed/fist1/200/200" alt="格斗技巧示意图" class="guide-thumb">
+                    <div class="guide-info">
+                        <span class="guide-tag">连招教学</span>
+                        <h3 class="guide-title">版本T0角色实战解析：如何利用重拳压制对手</h3>
+                        <p class="guide-excerpt">本期深度解析当前版本中最强势的近战角色，详细介绍其重拳技能的攻击范围、帧数优势以及如何通过预判实现“双拳无敌”的压制流打法。</p>
+                        <div class="guide-meta">
+                            <span class="author">
+                                <div class="author-avatar"></div>
+                                <span>格斗大师_老王</span>
+                            </span>
+                            <span>阅读量：12.5k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 攻略卡片 2 -->
+                <article class="guide-card">
+                    <img src="https://picsum.photos/seed/fist2/200/200" alt="装备搭配示意图" class="guide-thumb">
+                    <div class="guide-info">
+                        <span class="guide-tag">装备搭配</span>
+                        <h3 class="guide-title">拳套属性选择指南：力量 vs 速度的终极平衡</h3>
+                        <p class="guide-excerpt">很多玩家在装备选择上容易陷入误区，本文通过大量实战数据对比，告诉你如何根据你的操作习惯（是喜欢快攻还是控场）来选择最适合你的拳套属性。</p>
+                        <div class="guide-meta">
+                            <span class="author">
+                                <div class="author-avatar"></div>
+                                <span>数据分析师小张</span>
+                            </span>
+                            <span>阅读量：8.2k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 攻略卡片 3 -->
+                <article class="guide-card">
+                    <img src="https://picsum.photos/seed/fist3/200/200" alt="防反技巧示意图" class="guide-thumb">
+                    <div class="guide-info">
+                        <span class="guide-tag">防反技巧</span>
+                        <h3 class="guide-title">破绽捕捉：当对手使用浮空技能时的应对策略</h3>
+                        <p class="guide-excerpt">对手浮空后往往会有短暂的硬直，这是反击的最佳时机。我们将拆解这一瞬间的判定帧，教你如何通过格挡取消来触发“无敌”状态。</p>
+                        <div class="guide-meta">
+                            <span class="author">
+                                <div class="author-avatar"></div>
+                                <span>防守专家</span>
+                            </span>
+                            <span>阅读量：6.7k</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 侧边栏排行 -->
+            <aside>
+                <div class="sidebar-block">
+                    <h3 class="sidebar-title">🔥 热门角色排行</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num top-1">1</span>
+                            <span class="rank-name">狂暴战士·雷欧</span>
+                            <span class="rank-rate">98%</span>
+                        </li>
+                        <li>
+                            <span class="rank-num top-2">2</span>
+                            <span class="rank-name">影舞者·夜莺</span>
+                            <span class="rank-rate">95%</span>
+                        </li>
+                        <li>
+                            <span class="rank-num top-3">3</span>
+                            <span class="rank-name">铁壁·泰坦</span>
+                            <span class="rank-rate">92%</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <span class="rank-name">剑气宗师</span>
+                            <span class="rank-rate">89%</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <span class="rank-name">暗夜刺客</span>
+                            <span class="rank-rate">86%</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-block">
+                    <h3 class="sidebar-title">⏰ 最新更新</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-name">V2.4 版本平衡性调整公告</span>
+                        </li>
+                        <li>
+                            <span class="rank-name">周末双倍经验活动开启</span>
+                        </li>
+                        <li>
+                            <span class="rank-name">格斗锦标赛S3赛季报名中</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 视频教学 -->
+        <section>
+            <h2 class="section-title">实战演示 <span>Video Tutorials</span></h2>
+            <div class="video-section">
+                <div class="video-grid">
+                    <div class="video-card">
+                        <img src="https://picsum.photos/seed/video1/400/225" alt="连招演示视频缩略图">
+                        <div class="play-icon"></div>
+                        <div class="video-info-overlay">
+                            <div class="video-title">5分钟学会：终极连招连招演示</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <img src="https://picsum.photos/seed/video2/400/225" alt="防反教学视频缩略图">
+                        <div class="play-icon"></div>
+                        <div class="video-info-overlay">
+                            <div class="video-title">如何预判对手出招：防反教学</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <img src="https://picsum.photos/seed/video3/400/225" alt="连招教学视频缩略图">
+                        <div class="play-icon"></div>
+                        <div class="video-info-overlay">
+                            <div class="video-title">新手必看：基础操作详解</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ 常见问题 -->
+        <section class="faq-section">
+            <h2 class="section-title">常见问题 <span>FAQ</span></h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-q">新手如何快速上手“双拳无敌”？</div>
+                    <div class="faq-a">建议先从基础连招开始练习，熟悉按键手感，不要急于追求高难度操作。多观看实战视频，理解敌人的攻击前摇。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">游戏中“无敌”状态是如何触发的？</div>
+                    <div class="faq-a">无敌状态通常由特定的格挡时机或技能特效触发。在敌人攻击即将命中的瞬间进行格挡，有几率触发短暂的无敌帧。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">双拳无敌是否支持双人联机？</div>
+                    <div class="faq-a">是的，游戏支持本地双人同屏对战，也支持在线双人合作闯关模式。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">如何提升角色的战斗力？</div>
+                    <div class="faq-a">除了提升角色等级，装备合适的拳套、强化技能等级以及搭配正确的战斗流派（如爆发流或持续输出流）都非常重要。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于双拳无敌</h4>
+                    <p>我们致力于为玩家提供最全面、最及时的格斗游戏攻略与资讯。让每一位玩家都能体验到“双拳无敌”的快感。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">游戏官网</a></li>
+                        <li><a href="#">下载中心</a></li>
+                        <li><a href="#">玩家论坛</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">新手指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 双拳无敌攻略站. All Rights Reserved. 本站为非官方网站，仅供攻略参考。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>

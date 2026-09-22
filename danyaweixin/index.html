@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="淡雅微信名大全，提供唯美、清冷、古风、文艺风格的微信昵称推荐，包含个性签名搭配与起名技巧。">
+    <meta name="keywords" content="淡雅微信名,微信昵称大全,唯美微信名,古风微信名,个性签名">
+    <title>淡雅微信名 - 唯美古风与清新风格微信昵称精选</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6b8c6f;
+            --secondary-color: #a6c3a3;
+            --bg-color: #f9f7f4;
+            --card-bg: #ffffff;
+            --text-main: #4a4a4a;
+            --text-light: #888888;
+            --border-color: #e6e6e6;
+            --spacing-unit: 16px;
+            --max-width: 1000px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            font-weight: normal;
+            font-size: 0.9rem;
+            margin-left: 8px;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9f7f4 0%, #eef5f0 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .search-box {
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s;
+            background: #fff;
+        }
+
+        .search-box input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(166, 195, 163, 0.2);
+        }
+
+        /* Main Content */
+        main {
+            max-width: var(--max-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 16px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Grid Layout for Names */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .name-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .name-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-color: var(--secondary-color);
+        }
+
+        .name-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+
+        .name-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            background-color: #f0f2f5;
+            color: var(--text-light);
+            border-radius: 4px;
+        }
+
+        .copy-hint {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .name-card:hover .copy-hint {
+            opacity: 1;
+        }
+
+        /* Sidebar / Tips */
+        aside {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .tip-box {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tip-box h4 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .tip-list {
+            list-style: none;
+        }
+
+        .tip-list li {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .tip-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 16px;
+                gap: 12px;
+            }
+            
+            nav ul {
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            aside {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">淡雅微信名<span>精选库</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">清新文艺</a></li>
+                    <li><a href="#">古风雅韵</a></li>
+                    <li><a href="#">极简冷淡</a></li>
+                    <li><a href="#">起名技巧</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>寻找属于你的那份宁静</h1>
+        <p>精选淡雅、唯美、有质感的微信昵称，为你的社交形象增添一抹独特的色彩。</p>
+        <div class="search-box">
+            <input type="text" placeholder="输入关键词搜索，如：云、风、墨..." id="searchInput">
+        </div>
+    </section>
+
+    <main>
+        <!-- Category 1: Fresh & Literary -->
+        <section id="fresh" class="category-section">
+            <div class="section-header">
+                <h2 class="section-title">清新文艺</h2>
+            </div>
+            <div class="grid-container">
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>半盏清茶</h3>
+                    <div class="tags">
+                        <span class="tag">生活</span>
+                        <span class="tag">治愈</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>听风眠</h3>
+                    <div class="tags">
+                        <span class="tag">梦境</span>
+                        <span class="tag">静谧</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>浅夏微凉</h3>
+                    <div class="tags">
+                        <span class="tag">季节</span>
+                        <span class="tag">清新</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>云边有个小卖部</h3>
+                    <div class="tags">
+                        <span class="tag">书籍</span>
+                        <span class="tag">温暖</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>一纸素笺</h3>
+                    <div class="tags">
+                        <span class="tag">书写</span>
+                        <span class="tag">文艺</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>林深时见鹿</h3>
+                    <div class="tags">
+                        <span class="tag">自然</span>
+                        <span class="tag">风景</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 2: Elegant & Ancient -->
+        <section id="ancient" class="category-section">
+            <div class="section-header">
+                <h2 class="section-title">古风雅韵</h2>
+            </div>
+            <div class="grid-container">
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>墨染流年</h3>
+                    <div class="tags">
+                        <span class="tag">水墨</span>
+                        <span class="tag">时光</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>琴瑟在御</h3>
+                    <div class="tags">
+                        <span class="tag">乐器</span>
+                        <span class="tag">古典</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>云中谁寄锦书来</h3>
+                    <div class="tags">
+                        <span class="tag">诗词</span>
+                        <span class="tag">思念</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>素手挽青丝</h3>
+                    <div class="tags">
+                        <span class="tag">古风</span>
+                        <span class="tag">唯美</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>疏影横斜</h3>
+                    <div class="tags">
+                        <span class="tag">梅花</span>
+                        <span class="tag">意境</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>且听风吟</h3>
+                    <div class="tags">
+                        <span class="tag">村上春树</span>
+                        <span class="tag">文学</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 3: Minimalist & Cool -->
+        <section id="minimal" class="category-section">
+            <div class="section-header">
+                <h2 class="section-title">极简冷淡</h2>
+            </div>
+            <div class="grid-container">
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>Zero</h3>
+                    <div class="tags">
+                        <span class="tag">英文</span>
+                        <span class="tag">数字</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>留白</h3>
+                    <div class="tags">
+                        <span class="tag">艺术</span>
+                        <span class="tag">设计</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>未命名</h3>
+                    <div class="tags">
+                        <span class="tag">极简</span>
+                        <span class="tag">神秘</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>Blue</h3>
+                    <div class="tags">
+                        <span class="tag">颜色</span>
+                        <span class="tag">情绪</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>过客</h3>
+                    <div class="tags">
+                        <span class="tag">情感</span>
+                        <span class="tag">淡然</span>
+                    </div>
+                </article>
+                <article class="name-card" onclick="copyName(this)">
+                    <span class="copy-hint">点击复制</span>
+                    <h3>Stay</h3>
+                    <div class="tags">
+                        <span class="tag">英文</span>
+                        <span class="tag">坚持</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <aside>
+            <div class="tip-box">
+                <h4>起名小贴士</h4>
+                <ul class="tip-list">
+                    <li>避免使用生僻字，方便好友添加。</li>
+                    <li>结合自己的兴趣爱好，如音乐、旅行、阅读。</li>
+                    <li>适当的符号点缀可以增加辨识度。</li>
+                    <li>定期更换昵称，保持社交圈的新鲜感。</li>
+                </ul>
+            </div>
+            <div class="tip-box">
+                <h4>常见风格解析</h4>
+                <ul class="tip-list">
+                    <li><strong>清新风：</strong>多用花草、天气、自然意象，给人轻松愉悦感。</li>
+                    <li><strong>古风：</strong>引用诗词典故，多用“墨、染、琴、瑟”等字眼。</li>
+                    <li><strong>冷淡风：</strong>多用极简词汇、英文或无意义的组合，显得高冷。</li>
+                    <li><strong>暗黑风：</strong>偏向忧郁、神秘，适合喜欢独特个性的用户。</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 淡雅微信名精选库. All Rights Reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.6;">本站提供的昵称仅供个人娱乐使用，请勿用于违法违规用途。</p>
+    </footer>
+
+    <script>
+        // 简单的点击复制功能
+        function copyName(element) {
+            const nameText = element.querySelector('h3').innerText;
+            navigator.clipboard.writeText(nameText).then(() => {
+                const hint = element.querySelector('.copy-hint');
+                const originalText = hint.innerText;
+                
+                hint.innerText = '已复制';
+                hint.style.color = '#6b8c6f';
+                
+                setTimeout(() => {
+                    hint.innerText = originalText;
+                    hint.style.color = 'var(--secondary-color)';
+                }, 1500);
+            }).catch(err => {
+                console.error('无法复制文本: ', err);
+                // 降级处理
+                const textarea = document.createElement('textarea');
+                textarea.value = nameText;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                const hint = element.querySelector('.copy-hint');
+                const originalText = hint.innerText;
+                hint.innerText = '已复制';
+                hint.style.color = '#6b8c6f';
+                
+                setTimeout(() => {
+                    hint.innerText = originalText;
+                    hint.style.color = 'var(--secondary-color)';
+                }, 1500);
+            });
+        }
+
+        // 搜索功能（前端简单过滤）
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.name-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                if (title.includes(term)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

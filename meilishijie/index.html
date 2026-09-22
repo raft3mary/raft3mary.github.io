@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="美丽世界 - 探索自然奇观、城市风光与人文景观的全球视觉指南。提供旅游攻略、摄影灵感、景点推荐及旅行实用资讯。">
+    <meta name="keywords" content="美丽世界, 旅游攻略, 景点推荐, 城市风光, 摄影, 旅行指南">
+    <title>美丽世界-全球自然与人文景观探索指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://picsum.photos/seed/nature_hero/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+
+        /* Content Sections */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        /* Card Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .ranking-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .ranking-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rank-num {
+            width: 25px;
+            height: 25px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .ranking-list li:nth-child(1) .rank-num { background: #e74c3c; }
+        .ranking-list li:nth-child(2) .rank-num { background: #f39c12; }
+        .ranking-list li:nth-child(3) .rank-num { background: #27ae60; }
+
+        .rank-text {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .category-item {
+            background: #f4f6f8;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .category-item:hover {
+            background: #eef2f5;
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .category-name {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 50px 20px;
+            margin-top: 40px;
+        }
+
+        .faq-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col p {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .main-container { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
+            nav ul { gap: 15px; font-size: 0.9rem; }
+            .search-bar { display: none; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">美丽<span>世界</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">自然风光</a></li>
+                    <li><a href="#">城市探索</a></li>
+                    <li><a href="#">人文历史</a></li>
+                    <li><a href="#">摄影指南</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索目的地...">
+                <span>🔍</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索美丽世界</h1>
+            <p>从巍峨的高山到深邃的海洋，从繁华的都市到宁静的古镇。我们为您提供最详尽的旅行指南、摄影技巧和景点推荐，助您发现地球上的每一处奇迹。</p>
+            <a href="#destinations" class="cta-button">开始探索</a>
+        </div>
+    </section>
+
+    <div class="main-container" id="destinations">
+        
+        <!-- Main Content Area -->
+        <main>
+            <section>
+                <div class="section-title">
+                    <h2>热门目的地推荐</h2>
+                    <a href="#">查看更多 &rarr;</a>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/iceland/400/300" alt="冰岛风光" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">自然奇观</span>
+                            <h3 class="card-title">冰岛：冰与火的国度</h3>
+                            <p class="card-desc">探索极光、冰川与火山共存的独特地貌，体验极致的自然风光与地热温泉。</p>
+                            <div class="card-footer">
+                                <span>旅行攻略</span>
+                                <span>3.2k 阅读</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/kyoto/400/300" alt="京都古韵" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">人文历史</span>
+                            <h3 class="card-title">日本京都：古韵与现代的交融</h3>
+                            <p class="card-desc">漫步在伏见稻荷大社千本鸟居，探访古老的寺庙与静谧的庭院。</p>
+                            <div class="card-footer">
+                                <span>城市探索</span>
+                                <span>2.8k 阅读</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/switzerland/400/300" alt="瑞士阿尔卑斯" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">户外徒步</span>
+                            <h3 class="card-title">瑞士阿尔卑斯山徒步指南</h3>
+                            <p class="card-desc">提供秋季最佳徒步路线、装备建议以及山顶小屋住宿体验分享。</p>
+                            <div class="card-footer">
+                                <span>户外指南</span>
+                                <span>1.5k 阅读</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section style="margin-top: 50px;">
+                <div class="section-title">
+                    <h2>深度专题报道</h2>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/forest/400/300" alt="雨林秘境" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">环保生态</span>
+                            <h3 class="card-title">亚马逊雨林：地球之肺</h3>
+                            <p class="card-desc">深入了解亚马逊雨林的生态系统，探访原住民文化，关注热带雨林保护。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/nightcity/400/300" alt="赛博朋克" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">城市摄影</span>
+                            <h3 class="card-title">城市夜景摄影技巧</h3>
+                            <p class="card-desc">如何利用长曝光和三脚架捕捉城市璀璨的霓虹灯效，打造梦幻夜景大片。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/desert/400/300" alt="沙漠探险" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">沙漠探险</span>
+                            <h3 class="card-title">撒哈拉沙漠：星空下的露营</h3>
+                            <p class="card-desc">体验沙漠露营的震撼，在无光污染的夜空下观赏满天繁星。</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar Area -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3 class="widget-title">旅行分类</h3>
+                <div class="category-grid">
+                    <a href="#" class="category-item">
+                        <span class="category-icon">🏔️</span>
+                        <span class="category-name">高山徒步</span>
+                    </a>
+                    <a href="#" class="category-item">
+                        <span class="category-icon">🏝️</span>
+                        <span class="category-name">海岛度假</span>
+                    </a>
+                    <a href="#" class="category-item">
+                        <span class="category-icon">🏰</span>
+                        <span class="category-name">古镇古村</span>
+                    </a>
+                    <a href="#" class="category-item">
+                        <span class="category-icon">🚗</span>
+                        <span class="category-name">自驾游</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">热门榜单</h3>
+                <ul class="ranking-list">
+                    <li>
+                        <span class="rank-num">1</span>
+                        <span class="rank-text">新西兰中土世界之旅</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">2</span>
+                        <span class="rank-text">中国大西北环线自驾</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">3</span>
+                        <span class="rank-text">冰岛环岛租车全攻略</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">4</span>
+                        <span class="rank-text">秘鲁马丘比丘徒步</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">5</span>
+                        <span class="rank-text">日本北海道赏樱指南</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">摄影器材推荐</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">适合风光摄影的全画幅相机推荐：</p>
+                <ul style="font-size: 0.9rem; color: #444;">
+                    <li style="margin-bottom: 8px;">• 索尼 A7R IV</li>
+                    <li style="margin-bottom: 8px;">• 尼康 Z7 II</li>
+                    <li style="margin-bottom: 8px;">• 佳能 R5</li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title" style="margin-bottom: 30px;">旅行常见问题</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>如何规划一次完美的长途旅行？</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    规划长途旅行需要先确定预算和时间，然后选择主要目的地。建议提前预订机票和住宿，并购买旅游保险。同时，了解目的地的签证政策和当地文化习俗非常重要。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>独自旅行安全吗？需要注意什么？</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    独自旅行本身是安全的，但需要提高警惕。建议将行程告知亲友，避免前往偏僻无人的地区，在夜间出行时保持清醒，保管好个人财物。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>什么是“无痕山林”原则？</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    无痕山林（LNT）是指旅行者在户外活动中，尽量减少对自然环境的影响。包括带走所有垃圾、不破坏植被、不干扰野生动物等。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于美丽世界</h3>
+                <p>我们致力于为旅行爱好者提供最权威、最实用的旅行资讯与灵感。让每一次出发都充满期待，让每一处风景都值得铭记。</p>
+            </div>
+            <div class="footer-col">
+                <h3>快速链接</h3>
+                <ul class="footer-links">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">投稿指南</a></li>
+                    <li><a href="#">广告合作</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>热门标签</h3>
+                <ul class="footer-links">
+                    <li><a href="#">自然风光</a></li>
+                    <li><a href="#">摄影技巧</a></li>
+                    <li><a href="#">徒步路线</a></li>
+                    <li><a href="#">美食探店</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 美丽世界探索指南 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-question span:last-child').textContent = '+';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    const span = question.querySelector('span:last-child');
+                    span.textContent = item.classList.contains('active') ? '-' : '+';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
